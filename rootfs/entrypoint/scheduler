@@ -1,14 +1,14 @@
 #!/bin/bash
 
+# Create the cron log file
+mkdir -p /var/log/cron
+
+# Make sure there is a empty line @ EOF
+echo '' >> ${file}
+
 file=/var/www/cron.conf
 
 if [ -f ${file} ]; then
-   # Create the cron log file
-   mkdir -p /var/log/cron
-
-   # Make sure there is a empty line @ EOF
-   echo '' >> ${file}
-
    # Set the cron to run
    crontab ${file}
 fi
